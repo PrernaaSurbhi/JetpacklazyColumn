@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -63,12 +64,32 @@ class MainActivity : ComponentActivity() {
 
 //            ListByColumn()
 
-            ListByLazyColumn()
+         //   ListByLazyColumn()
+
+            ListByLazyColumItemsIndexed()
 
         }
     }
 }
-
+@Preview
+@Composable
+private fun ListByLazyColumItemsIndexed(){
+    // lazy column is scrollable by default
+    LazyColumn {
+        itemsIndexed(
+            listOf("This","is","RecyclerView","of","any","item","type")
+        ){ index,string ->
+            Text(text = " $string",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 24.dp)
+            )
+        }
+    }
+}
 
 @Composable
 private fun ListByColumn(){
@@ -86,7 +107,6 @@ private fun ListByColumn(){
     }
 }
 
-@Preview
 @Composable
 private fun ListByLazyColumn(){
     // lazy column is scrollable by default
@@ -104,9 +124,6 @@ private fun ListByLazyColumn(){
 
     }
 }
-
-
-
 
 @Composable
 private fun ImageCard(
