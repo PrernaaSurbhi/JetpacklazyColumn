@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -60,13 +61,15 @@ class MainActivity : ComponentActivity() {
 //                ImageCard(painter,description,title, modifier = Modifier.fillMaxWidth())
 //            }
 
-            ListByColumn()
+//            ListByColumn()
+
+            ListByLazyColumn()
 
         }
     }
 }
 
-@Preview
+
 @Composable
 private fun ListByColumn(){
     val scrollState = rememberScrollState()
@@ -82,6 +85,27 @@ private fun ListByColumn(){
             )
     }
 }
+
+@Preview
+@Composable
+private fun ListByLazyColumn(){
+    // lazy column is scrollable by default
+    LazyColumn {
+         items(5000){
+             Text(text = "Item $it",
+                 fontSize = 25.sp,
+                 fontWeight = FontWeight.Bold,
+                 textAlign = TextAlign.Center,
+                 modifier = Modifier
+                     .fillMaxWidth()
+                     .padding(vertical = 24.dp)
+             )
+         }
+
+    }
+}
+
+
 
 
 @Composable
