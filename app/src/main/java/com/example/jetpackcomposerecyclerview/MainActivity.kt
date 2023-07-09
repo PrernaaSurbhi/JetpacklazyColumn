@@ -6,11 +6,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,6 +25,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,24 +49,41 @@ class MainActivity : ComponentActivity() {
         setContent {
 //           App()
 
-            val painter = painterResource(id = R.drawable.snow_man)
-            val description = "snow man is playing"
-            val title = "snow man is playing"
-            
-            Box(modifier = Modifier
-                .fillMaxWidth(0.5f)
-                .padding(16.dp)
-            ) {
-                ImageCard(painter,description,title, modifier = Modifier.fillMaxWidth())
-            }
+//            val painter = painterResource(id = R.drawable.snow_man)
+//            val description = "snow man is playing"
+//            val title = "snow man is playing"
+//
+//            Box(modifier = Modifier
+//                .fillMaxWidth(0.5f)
+//                .padding(16.dp)
+//            ) {
+//                ImageCard(painter,description,title, modifier = Modifier.fillMaxWidth())
+//            }
 
-
+            ListByColumn()
 
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview
+@Composable
+private fun ListByColumn(){
+    val scrollState = rememberScrollState()
+    Column(modifier = Modifier.verticalScroll(scrollState)) {
+        for(i in 1..50)
+            Text(text = "Item $i",
+            fontSize = 25.sp,
+            fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 24.dp)
+            )
+    }
+}
+
+
 @Composable
 private fun ImageCard(
     painter: Painter,
@@ -88,11 +110,6 @@ private fun ImageCard(
            }
       }
     }
-
-
-
-
-
 
 @Composable
 fun App(){
