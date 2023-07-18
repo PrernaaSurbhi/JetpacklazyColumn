@@ -23,9 +23,14 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,6 +54,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
@@ -84,10 +90,41 @@ class MainActivity : ComponentActivity() {
 
           //  ListItemdisplay()
 
-            PersonListView()
+//            PersonListView()
+
+            EditTextCharacterCount()
         }
     }
 }
+
+//This method is to add character count on EditText
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun EditTextCharacterCount(){
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        var name by remember { mutableStateOf("") }
+        val maxChar = 10
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = { newText ->
+                if(newText.length <= maxChar){
+                    name = newText
+                }
+            },
+            label = { Text(text = "Name") },
+            placeholder = { Text(text = "Enter your name") },
+            maxLines = 1
+            )
+
+    }
+
+}
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
