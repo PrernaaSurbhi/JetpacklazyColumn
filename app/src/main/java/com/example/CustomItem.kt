@@ -49,14 +49,14 @@ import com.example.model.Person
     }
 }
 
-
-//fun CustomItemPreview() {
-//    CustomItem(
-//        person = Person(
-//            id = 0,
-//            firstName = "John",
-//            lastName = "Doe",
-//            age = 20
-//        )
-//    )
-//}
+@Composable
+fun CustomItemPreview() {
+    CustomItem(
+        person = Person(
+            id = 0,
+            firstName = "John",
+            lastName = "Doe",
+            age = 20
+        )
+    )
+}
