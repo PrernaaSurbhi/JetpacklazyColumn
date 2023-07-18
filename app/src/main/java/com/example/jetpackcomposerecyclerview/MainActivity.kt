@@ -2,6 +2,7 @@ package com.example.jetpackcomposerecyclerview
 
 import CustomItem
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -96,7 +97,12 @@ private fun PersonListView(){
     LazyColumn(
         contentPadding = PaddingValues(all = 12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        items(items = getAlldataItems) { person ->
+        itemsIndexed(items = getAlldataItems,
+            key = {index, person ->
+                person.id
+            }
+        ) {index, person ->
+            Log.d("MainActivity ","each person index value: "+index.toString())
             CustomItem(person = person)
         }
     }
