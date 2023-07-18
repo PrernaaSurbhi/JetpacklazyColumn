@@ -89,21 +89,26 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun PersonListView(){
-    val repository = PersonRepository()
-    val getAlldataItems: List<Person> =repository.getAllData()
-
+      val sections = listOf("A","B","C","D","E","F","G")
     LazyColumn(
-        contentPadding = PaddingValues(all = 12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
+        contentPadding = PaddingValues(all = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        itemsIndexed(items = getAlldataItems,
-            key = {index, person ->
-                person.id
+        sections.forEach {section ->  
+            stickyHeader {
+                Text(modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.LightGray)
+                    .padding(12.dp)
+                    ,text = "Section $section")
             }
-        ) {index, person ->
-            Log.d("MainActivity ","each person index value: "+index.toString())
-            CustomItem(person = person)
+            items(10){
+                Text(modifier = Modifier.padding(12.dp),
+                    text = "Item $it from the section $section" )
+            }
         }
     }
 }
