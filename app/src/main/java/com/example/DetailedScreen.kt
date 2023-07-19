@@ -22,8 +22,13 @@ fun DetailedScreen(navController: NavController) {
     ) {
         Text(modifier = Modifier.clickable {
             //below both lines can be used to pop back stack
-//          navController.navigate(route = Screens.Home.route)
-            navController.popBackStack()
+          //  navController.popBackStack()
+            //way to navigate back to home screen and remove our screen from back
+            navController.navigate(route = Screens.Home.route){
+                popUpTo(Screens.Home.route){
+                    inclusive = true
+                }
+            }
         },
             text = "Detailed  Screen" ,
             color = Color.Red,
