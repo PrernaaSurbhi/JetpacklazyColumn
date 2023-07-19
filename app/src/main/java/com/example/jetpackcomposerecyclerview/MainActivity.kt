@@ -46,10 +46,13 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.DataManger
 import com.example.model.Person
 import com.example.repository.PersonRepository
 import com.example.screens.EmployeeListScreen
+import com.example.setUpNavGraph
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -58,15 +61,21 @@ import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
+
+    lateinit var navHostController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            delay(1000)
-            DataManger.loadAssetsFromFile(applicationContext)
-        }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            delay(1000)
+//            DataManger.loadAssetsFromFile(applicationContext)
+//        }
 
         setContent {
+            MaterialTheme{
+                navHostController = rememberNavController()
+                setUpNavGraph(navController = navHostController )
+            }
 //           App()
 
 //            val painter = painterResource(id = R.drawable.snow_man)
@@ -92,10 +101,14 @@ class MainActivity : ComponentActivity() {
 
 //            PersonListView()
 
-            EditTextCharacterCount()
+          //  EditTextCharacterCount()
+
+            //method for initializing the Home Screen Navigation
+
         }
     }
 }
+
 
 //This method is to add character count on EditText
 @OptIn(ExperimentalMaterial3Api::class)
