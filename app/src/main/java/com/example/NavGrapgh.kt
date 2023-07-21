@@ -26,17 +26,27 @@ fun setUpNavGraph(
         composable(
             route = Screens.Detail.route,
             arguments = listOf(
-                navArgument(DETAILED_ARG_KEY) {
-                    type = NavType.IntType
-                },
+                //Todo  these method is used for passing Mendatory parameter to the String
+//                navArgument(DETAILED_ARG_KEY) {
+//                    type = NavType.IntType
+//                },
+//
+//                navArgument(DETAILED_ARG_KEY2) {
+//                    type = NavType.StringType
+//                }
 
-                navArgument(DETAILED_ARG_KEY2) {
-                    type = NavType.StringType
+                //Todo  this method is used for passing Optional parameter to the String
+                //In optional parameter of argument , passing defalult value is mendatory
+
+                navArgument(DETAILED_ARG_KEY){
+                    type = NavType.IntType
+                    defaultValue = 0
+//                    nullable = true
                 }
             )
         ) {
-            Log.d("argsDetailScreen receive", it.arguments?.getInt(DETAILED_ARG_KEY).toString())
-            Log.d("argsDetailScreen receive", it.arguments?.getString(DETAILED_ARG_KEY2).toString())
+            Log.d("argsDetailSc", it.arguments?.getInt(DETAILED_ARG_KEY).toString())
+            Log.d("argsDetailSc", it.arguments?.getString(DETAILED_ARG_KEY2).toString())
             DetailedScreen(navController)
         }
     }

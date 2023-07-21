@@ -22,10 +22,7 @@ fun HomeScreen(navController: NavController) {
     ) {
         Text(modifier = Modifier.clickable {
             navController.navigate(
-                route = Screens.Detail.passNameAndId(
-                    id = 10,
-                    name = "Prerna_pass_multi_param"
-                )
+                route = "detail_screen/?id={id}"
             )
         },
             text = "Home Screen" ,
