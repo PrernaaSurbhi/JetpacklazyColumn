@@ -21,7 +21,7 @@ fun HomeScreen(navController: NavController) {
         contentAlignment = Alignment.Center
     ) {
         Text(modifier = Modifier.clickable {
-            navController.navigate(route = Screens.Detail.route)
+            navController.navigate(route = "detail_screen/" +1)
         },
             text = "Home Screen" ,
             color = Color.Magenta,

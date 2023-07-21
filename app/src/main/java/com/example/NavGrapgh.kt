@@ -1,10 +1,13 @@
 package com.example
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 
 @Composable
 fun setUpNavGraph(
@@ -21,8 +24,14 @@ fun setUpNavGraph(
           }
 
           composable(
-              route = Screens.Detail.route
+              route = Screens.Detail.route,
+              arguments = listOf(
+                  navArgument("id") {
+                      type = NavType.IntType
+                  }
+              )
           ){
+              Log.d("argsDetailScreen receive",it.arguments?.getInt("id").toString())
              DetailedScreen(navController)
           }
       }
