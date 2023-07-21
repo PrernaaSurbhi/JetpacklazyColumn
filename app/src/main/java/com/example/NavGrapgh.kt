@@ -26,12 +26,12 @@ fun setUpNavGraph(
           composable(
               route = Screens.Detail.route,
               arguments = listOf(
-                  navArgument("id") {
+                  navArgument(DETAILED_ARG_KEY) {
                       type = NavType.IntType
                   }
               )
           ){
-              Log.d("argsDetailScreen receive",it.arguments?.getInt("id").toString())
+              Log.d("argsDetailScreen receive",it.arguments?.getInt(DETAILED_ARG_KEY).toString())
              DetailedScreen(navController)
           }
       }
