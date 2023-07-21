@@ -15,12 +15,18 @@ sealed class Screens(val route :String){
 //        }
 //    }
 
-    //Passing Optional parameter of arguments
-    object Detail:Screens(route = "detail_screen/?id={id}"){
-        fun passOptionalArgument(
-            id:Int = 0
-        ):String{
-            return "detail_screen?id =$id"
+    //Passing  Single Optional parameter of arguments
+//    object Detail:Screens(route = "detail_screen/?id={id}"){
+//        fun passOptionalArgument(id:Int = 0):String{
+//            return "detail_screen?id =$id"
+//        }
+//    }
+
+    //Passing  Multiple Optional parameter of arguments
+    object Detail:Screens(route = "detail_screen/?id={$DETAILED_ARG_KEY}&name={$DETAILED_ARG_KEY2}"){
+        fun passOptionalMutiArgument(id:Int = 0,name: String = "Prerna-surbhi"): String{
+            return "detail_screen?id =$id&name=$name"
         }
     }
+
 }

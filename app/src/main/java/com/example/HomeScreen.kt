@@ -22,7 +22,8 @@ fun HomeScreen(navController: NavController) {
     ) {
         Text(modifier = Modifier.clickable {
             navController.navigate(
-                route = "detail_screen/?id={id}"
+                //TODO need to refine this
+                route = Screens.Detail.passOptionalMutiArgument()
             )
         },
             text = "Home Screen" ,

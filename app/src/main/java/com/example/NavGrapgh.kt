@@ -30,7 +30,7 @@ fun setUpNavGraph(
 //                navArgument(DETAILED_ARG_KEY) {
 //                    type = NavType.IntType
 //                },
-//
+////
 //                navArgument(DETAILED_ARG_KEY2) {
 //                    type = NavType.StringType
 //                }
@@ -40,8 +40,11 @@ fun setUpNavGraph(
 
                 navArgument(DETAILED_ARG_KEY){
                     type = NavType.IntType
-                    defaultValue = 0
-//                    nullable = true
+                    defaultValue = 0 },
+
+               navArgument(DETAILED_ARG_KEY2) {
+                    type = NavType.StringType
+
                 }
             )
         ) {
