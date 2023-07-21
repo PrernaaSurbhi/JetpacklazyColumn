@@ -11,28 +11,33 @@ import androidx.navigation.navArgument
 
 @Composable
 fun setUpNavGraph(
-    navController: NavHostController)
-{
-      NavHost(
-          navController = navController,
-          startDestination = Screens.Home.route
-      ){
-          composable(
-              route = Screens.Home.route
-          ){
-              HomeScreen(navController)
-          }
+    navController: NavHostController
+) {
+    NavHost(
+        navController = navController,
+        startDestination = Screens.Home.route
+    ) {
+        composable(
+            route = Screens.Home.route
+        ) {
+            HomeScreen(navController)
+        }
 
-          composable(
-              route = Screens.Detail.route,
-              arguments = listOf(
-                  navArgument(DETAILED_ARG_KEY) {
-                      type = NavType.IntType
-                  }
-              )
-          ){
-              Log.d("argsDetailScreen receive",it.arguments?.getInt(DETAILED_ARG_KEY).toString())
-             DetailedScreen(navController)
-          }
-      }
+        composable(
+            route = Screens.Detail.route,
+            arguments = listOf(
+                navArgument(DETAILED_ARG_KEY) {
+                    type = NavType.IntType
+                },
+
+                navArgument(DETAILED_ARG_KEY2) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
+            Log.d("argsDetailScreen receive", it.arguments?.getInt(DETAILED_ARG_KEY).toString())
+            Log.d("argsDetailScreen receive", it.arguments?.getString(DETAILED_ARG_KEY2).toString())
+            DetailedScreen(navController)
+        }
+    }
 }

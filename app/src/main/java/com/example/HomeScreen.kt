@@ -21,7 +21,12 @@ fun HomeScreen(navController: NavController) {
         contentAlignment = Alignment.Center
     ) {
         Text(modifier = Modifier.clickable {
-            navController.navigate(route = "detail_screen/" +1)
+            navController.navigate(
+                route = Screens.Detail.passNameAndId(
+                    id = 10,
+                    name = "Prerna_pass_multi_param"
+                )
+            )
         },
             text = "Home Screen" ,
             color = Color.Magenta,
