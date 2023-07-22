@@ -46,6 +46,7 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.DataManger
+import com.example.bottom_navigation.MainScreen
 import com.example.screens.EmployeeListScreen
 import com.example.nav_graph.setUpNavGraph
 
@@ -62,10 +63,17 @@ class MainActivity : ComponentActivity() {
 //        }
 
         setContent {
-            MaterialTheme{
-                navHostController = rememberNavController()
-                setUpNavGraph(navController = navHostController )
+            //Todo initialization code for Navigation between Screen
+//            MaterialTheme{
+//                navHostController = rememberNavController()
+//                setUpNavGraph(navController = navHostController )
+//            }
+
+            //Todo initialization code for Bottom Navigation
+            MaterialTheme {
+                MainScreen()
             }
+
 //           App()
 
 //            val painter = painterResource(id = R.drawable.snow_man)

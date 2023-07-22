@@ -1,4 +1,4 @@
-package com.example
+package com.example.bottom_navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -10,7 +10,7 @@ sealed class Bottom_bar_screens(val route:String,
                                  val title:String,
                                  val icon:ImageVector){
 
-    object Home:Bottom_bar_screens(
+    object Home: Bottom_bar_screens(
         route = "home",
         title = "Home",
         icon = Icons.Default.Home

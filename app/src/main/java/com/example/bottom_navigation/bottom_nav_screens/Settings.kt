@@ -1,4 +1,4 @@
-package com.example.bottom_nav_screens
+package com.example.bottom_navigation.bottom_nav_screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,16 +14,19 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun HomeScreen(){
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.LightGray),
+fun SettingScreen(){
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Cyan),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Home",
+        Text(
+            text = "SETTINGS",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
     }
+
 }

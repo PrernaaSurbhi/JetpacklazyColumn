@@ -1,4 +1,4 @@
-package com.example.bottom_nav_screens
+package com.example.bottom_navigation.bottom_nav_screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
