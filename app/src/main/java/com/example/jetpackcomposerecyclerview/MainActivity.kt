@@ -44,13 +44,13 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.DataManger
 import com.example.bottom_navigation.MainScreen
 import com.example.screens.EmployeeListScreen
-import com.example.nav_graph.setUpNavGraph
+import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalFoundationApi
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     lateinit var navHostController: NavHostController
